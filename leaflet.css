@@ -1,0 +1,295 @@
+/* Shared styles for every e-Leaflet page (Home + section pages). */
+
+/* BEGIN: Base styling */
+body {
+  background-color: #f3f5f2;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+/* Smooth pill icon rotation on subtle interaction */
+.icon-hover-bounce:active {
+  transform: scale(0.96);
+}
+/* END: Base styling */
+
+/* BEGIN: Subtle decorative barcode styling */
+.barcode-line-thin {
+  width: 1.5px;
+  height: 32px;
+  background: #2f3e31;
+  display: inline-block;
+}
+.barcode-line-medium {
+  width: 3px;
+  height: 32px;
+  background: #2f3e31;
+  display: inline-block;
+}
+.barcode-line-thick {
+  width: 5px;
+  height: 32px;
+  background: #2f3e31;
+  display: inline-block;
+}
+.barcode-space {
+  width: 2.5px;
+  height: 32px;
+  display: inline-block;
+}
+/* END: Subtle decorative barcode styling */
+
+.leaflet-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+}
+.leaflet-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+.leaflet-info > div:last-child {
+  min-width: 0;
+}
+.leaflet-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 8px;
+}
+.leaflet-heading > p {
+  flex: 1 1 130px;
+}
+.leaflet-heading > span {
+  white-space: nowrap;
+}
+.leaflet-info > div:last-child > p {
+  margin-top: 5px;
+  line-height: 1.5;
+}
+@media (max-width: 359px) {
+  .leaflet-card {
+    grid-template-columns: 1fr;
+  }
+  .leaflet-card > div:last-child {
+    justify-self: start;
+    margin-left: 52px;
+  }
+}
+
+/* BEGIN: Top navigation bar */
+.medicine-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px;
+  min-height: 76px;
+}
+/* Back button + title, used on section pages */
+.medicine-header-start {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+.medicine-back {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border: 1px solid #d2dfd2;
+  border-radius: 12px;
+  background: #ffffff;
+  color: #2e482e;
+  transition: background-color 0.15s ease;
+}
+.medicine-back:hover {
+  background: #e8efe8;
+}
+.medicine-back:focus-visible {
+  outline: 3px solid #7e9f7e;
+  outline-offset: 2px;
+}
+.medicine-back svg {
+  width: 18px;
+  height: 18px;
+}
+.medicine-header-copy {
+  min-width: 0;
+}
+.medicine-header-copy h1 {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 750;
+  line-height: 1.4;
+  letter-spacing: 0.045em;
+  text-transform: uppercase;
+  color: #162316;
+}
+.medicine-header-copy p {
+  margin: 3px 0 0;
+  font-family: ui-monospace, monospace;
+  font-size: 9px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: #6b7280;
+}
+.medicine-auth {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  flex-shrink: 0;
+  padding: 4px 8px;
+  border: 1px solid #6ee7b7;
+  border-radius: 999px;
+  background: #d1fae5;
+  color: #065f46;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+.medicine-auth > span {
+  width: 6px;
+  height: 6px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #6cc7ac;
+}
+@media (max-width: 340px) {
+  .medicine-header {
+    gap: 10px;
+    padding: 16px 12px;
+  }
+  .medicine-header-start {
+    gap: 10px;
+  }
+  .medicine-back {
+    width: 36px;
+    height: 36px;
+  }
+  .medicine-header-copy p {
+    font-size: 8px;
+  }
+  .medicine-auth {
+    font-size: 9px;
+    padding: 4px 7px;
+  }
+}
+/* END: Top navigation bar */
+
+/* BEGIN: Previous / Next buttons (green circles with a white chevron)
+   The link (.pager-link) is the tap area: it fills its half of the row,
+   edge to edge, so a tap near the circle works, not only on it. With a screen
+   reader (VoiceOver / TalkBack explore-by-touch), touching anywhere in that
+   half announces the button, then a double-tap opens it. */
+.leaflet-pager {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* stretch over <main>'s 16px side padding, out to the screen edges */
+  margin-left: -16px;
+  margin-right: -16px;
+  /* also fill the 16px gaps above and below (from main's space-y-4), so the
+     tap area grows taller while the circles stay where they were.
+     !important: Tailwind's space-y rule is more specific than this one. */
+  margin-top: 0 !important;
+  margin-bottom: -16px !important;
+}
+/* Home: Previous is disabled, so it keeps only its circle's spot and
+   Next takes the rest of the row (about three quarters of the width) */
+.leaflet-pager.pager-first {
+  grid-template-columns: auto 1fr;
+}
+.pager-link {
+  display: flex;
+  align-items: center;
+  min-height: 128px;
+  padding: 0 20px;
+  border-radius: 24px;
+  touch-action: manipulation;
+  transition: background-color 0.15s ease;
+}
+.pager-link:last-child {
+  justify-content: flex-end;
+}
+/* Tint the whole tap area while pressed, so the touch registers visibly.
+   .is-pressed: set by leaflet.js when the left/right side of the screen is tapped. */
+a.pager-link:active,
+a.pager-link.is-pressed {
+  background: rgba(59, 181, 74, 0.12);
+}
+/* Keyboard focus: ring around the circle, not the large invisible area */
+.pager-link:focus-visible {
+  outline: none;
+}
+.pager-link:focus-visible .pager-btn {
+  outline: 3px solid #2e482e;
+  outline-offset: 4px;
+}
+.pager-btn {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #3bb54a;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(46, 140, 60, 0.25);
+  transition:
+    background-color 0.15s ease,
+    transform 0.15s ease;
+}
+.pager-btn svg {
+  width: 26px;
+  height: 26px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 3.5;
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+}
+a.pager-link:hover .pager-btn {
+  background: #33a542;
+}
+a.pager-link:active .pager-btn,
+a.pager-link.is-pressed .pager-btn {
+  transform: scale(0.95);
+}
+/* Home has nothing before it, so its Previous button is shown faded */
+.pager-btn.is-disabled {
+  opacity: 0.35;
+  box-shadow: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .pager-link,
+  .pager-btn {
+    transition: none;
+  }
+  a.pager-link:active .pager-btn {
+    transform: none;
+  }
+}
+/* END: Previous / Next buttons */
+
+/* Listen button swaps its play/stop icons with the hidden attribute */
+svg[hidden] {
+  display: none;
+}
+
+/* Off-screen frames Home uses to read each section page for the PDF.
+   They must stay rendered (not display:none) so the page text keeps its line breaks. */
+.pdf-source-frame {
+  position: fixed;
+  top: 0;
+  left: -10000px;
+  width: 420px;
+  height: 900px;
+  border: 0;
+  opacity: 0;
+  pointer-events: none;
+}

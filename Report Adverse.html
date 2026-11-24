@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Report Adverse Event | e-Leaflet Guide</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f3f5f2;color:#1c281d;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:13px;line-height:1.5}.app{width:100%;max-width:420px;margin:24px auto;min-height:calc(100vh - 48px);background:#f9f8f5;border:1px solid #d2dfd2;border-radius:36px;overflow:hidden;box-shadow:0 20px 45px #22362218}header{padding:16px;min-height:76px;background:#ffffffd9;border-bottom:1px solid #d2dfd2;display:flex;justify-content:space-between;align-items:center;gap:12px}.brand{font-size:11px;font-weight:750;letter-spacing:.08em;text-transform:uppercase}.sub{font-size:10px;color:#627063}a{color:#2e482e;text-underline-offset:3px}header a{font-size:11px;white-space:nowrap}main{padding:20px 16px 28px}.eyebrow{font-size:10px;color:#875104;text-transform:uppercase;font-weight:700;letter-spacing:.1em}h1{font-size:25px;letter-spacing:-.7px;line-height:1.2;margin:8px 0}p{margin:8px 0;color:#627063}.notice{background:#fff7e6;border:1px solid #fad896;border-radius:14px;padding:12px;color:#875104;font-size:11px;margin:18px 0}.medicine{display:flex;align-items:center;gap:12px;padding:13px;background:#e8efe8;border:1px solid #d2dfd2;border-radius:16px;margin-bottom:16px}.medicine-icon{width:38px;height:38px;border-radius:11px;background:white;display:grid;place-items:center;color:#3d5e3d;font-size:21px;flex-shrink:0}.medicine strong{display:block;font-size:13px}.medicine small{color:#627063;font-size:10px}fieldset{margin:0 0 16px;padding:16px;background:#fff;border:1px solid #d2dfd2;border-radius:16px;min-width:0}legend{float:left;width:100%;padding:0;margin-bottom:14px;font-size:11px;font-weight:750;text-transform:uppercase;letter-spacing:.06em;color:#223622}.fields{clear:both}label{display:block;font-size:11px;font-weight:650;margin-bottom:6px}label span{color:#627063;font-weight:400}input,select,textarea{display:block;width:100%;border:1px solid #cbd8cb;border-radius:9px;padding:10px 11px;font:inherit;font-size:12px;background:#fcfdfb;color:#1c281d;margin-bottom:14px}textarea{resize:vertical;min-height:110px}input:focus,select:focus,textarea:focus{outline:2px solid #7e9f7e;outline-offset:2px}input:last-child,select:last-child,textarea:last-child{margin-bottom:0}.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}.hint{font-size:10px;color:#627063;margin:-7px 0 14px}.consent{display:flex;gap:9px;align-items:flex-start;font-weight:400;color:#627063;line-height:1.5;margin:0 2px 18px}.consent input{width:16px;height:16px;margin:2px 0 0;flex-shrink:0;accent-color:#2e482e}button{font:inherit;cursor:pointer;border-radius:12px;padding:12px 14px;font-size:12px;font-weight:650}.primary{width:100%;background:#2e482e;color:white;border:1px solid #2e482e}.primary:hover{background:#223622}.secondary{width:100%;border:1px solid #adc4ad;background:white;color:#2e482e;margin-top:10px}button:focus-visible,a:focus-visible{outline:3px solid #7e9f7e;outline-offset:3px}.privacy{text-align:center;font-size:10px;margin:12px 8px 0}.status{padding:14px;border:1px solid #adc4ad;background:#e8efe8;border-radius:12px;margin-top:16px;color:#223622}.status:empty{display:none}.intro-top{display:flex;align-items:center;justify-content:space-between;gap:12px}.listen{display:inline-flex;align-items:center;gap:6px;flex-shrink:0;min-height:40px;padding:0 14px;border:1px solid #adc4ad;border-radius:999px;background:#fff;color:#2e482e;box-shadow:0 2px 10px #233c230d}.listen:hover{background:#e8efe8}.listen[data-speaking="true"]{background:#2e482e;border-color:#2e482e;color:#fff}.listen svg{width:16px;height:16px;flex-shrink:0}.listen svg[hidden]{display:none}@media(max-width:480px){.app{margin:0;border-radius:0;min-height:100vh;border-top:0;border-bottom:0}}@media(max-width:330px){.row{grid-template-columns:1fr}header{padding:15px}}
+</style>
+<!-- Shared Listen button (read aloud) -->
+<script src="leaflet.js"></script>
+</head>
+<body>
+<div class="app">
+<header><div><div class="brand">e-Leaflet Guide</div><div class="sub">Medicine safety reporting</div></div><a href="Home.html">View leaflet</a></header>
+<main>
+<div class="intro-top">
+<div class="eyebrow" data-speak>Patient safety</div>
+<button id="listen-button" class="listen" type="button" data-speaking="false"><svg data-listen-icon="play" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/></svg><svg data-listen-icon="stop" aria-hidden="true" hidden fill="currentColor" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2"/></svg><span data-listen-label>Listen</span></button>
+</div>
+<div data-speak>
+<h1>Report an adverse event</h1>
+<p>Record a suspected side effect or medicine-related concern to share with your healthcare professional.</p>
+<div class="notice">This form is not monitored and does not send a report. For an emergency, contact your local emergency service.</div>
+<div class="medicine"><div class="medicine-icon" aria-hidden="true">&#10010;</div><div><strong>HerbaCalm Forte</strong><small><span data-say="500 milligrams,">500 mg</span> &middot; Film-coated tablets</small></div></div>
+</div>
+<form id="report-form">
+<fieldset><legend>01 &nbsp; Medicine details</legend><div class="fields">
+<label for="medicine">Medicine name *</label><input id="medicine" name="Medicine name" value="HerbaCalm Forte" required maxlength="150">
+<label for="batch">Batch / lot number <span>(optional)</span></label><input id="batch" name="Batch / lot number" value="LOT-HB98442-EXP27" maxlength="100">
+<label for="dose">Dose taken <span>(optional)</span></label><input id="dose" name="Dose taken" placeholder="e.g. 1 tablet, once daily" maxlength="150">
+</div></fieldset>
+<fieldset><legend>02 &nbsp; What happened?</legend><div class="fields">
+<label for="reaction">Describe the suspected side effect *</label><textarea id="reaction" name="Suspected side effect" placeholder="Describe what happened, when it began, and how long it lasted." required maxlength="5000"></textarea>
+</div></fieldset>
+<fieldset><legend>03 &nbsp; Reporter details</legend><div class="fields">
+<label for="role">You are reporting as *</label><select id="role" name="Reporter role" required><option value="">Select your role</option><option>Patient</option><option>Caregiver or family member</option><option>Healthcare professional</option><option>Other</option></select>
+<label for="reporter">Your name <span>(optional)</span></label><input id="reporter" name="Reporter name" autocomplete="name" maxlength="120">
+<label for="email">Email address <span>(optional)</span></label><input type="email" id="email" name="Reporter email" autocomplete="email" maxlength="200">
+<p class="hint">Include contact details only if you want them in your downloaded report.</p>
+</div></fieldset>
+<label class="consent"><input type="checkbox" required><span>I understand that downloading this report does not submit it to a healthcare professional, manufacturer, or regulator.</span></label>
+<button class="primary" type="submit">Download adverse event report</button>
+<button class="secondary" type="reset">Clear form</button>
+<div id="report-status" class="status" role="status" aria-live="polite"></div>
+<p class="privacy">Your entries stay on this page until you download or leave. No information is sent or saved by this page.</p>
+</form>
+</main>
+</div>
+<script>
+const form = document.getElementById('report-form');
+const status = document.getElementById('report-status');
+form.addEventListener('submit', function (event) {
+  event.preventDefault();
+  if (!form.reportValidity()) return;
+  const entries = Array.from(new FormData(form), ([label, value]) => label + ':\n' + (String(value).trim() || 'Not provided'));
+  const report = ['ADVERSE EVENT REPORT', 'Prepared: ' + new Date().toLocaleString(), 'Not submitted. Share this file with your healthcare professional or appropriate reporting service.', '', ...entries].join('\n\n');
+  const url = URL.createObjectURL(new Blob([report], {type: 'text/plain;charset=utf-8'}));
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = 'Adverse-Event-Report.txt';
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 30000);
+  status.textContent = 'Your report file is ready. No report has been submitted. Share the downloaded file with your healthcare professional or the appropriate reporting service.';
+});
+form.addEventListener('reset', function(event) {
+  event.preventDefault();
+  form.querySelectorAll('input, select, textarea').forEach(field => {
+    if (field.type === 'checkbox') field.checked = false;
+    else if (field.id === 'medicine' || field.id === 'batch') field.value = field.defaultValue;
+    else field.value = '';
+  });
+  status.textContent = '';
+});
+</script>
+</body>
+</html>

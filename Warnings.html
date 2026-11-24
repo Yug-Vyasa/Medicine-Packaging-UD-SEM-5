@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+      name="viewport"
+    />
+    <title>Warnings &amp; Precautions | e-Leaflet Guide</title>
+    <!-- Tailwind CSS v3 CDN with forms and container queries -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Shared theme, styles, Listen button and PDF download for every leaflet page -->
+    <script src="leaflet.js"></script>
+    <link rel="stylesheet" href="leaflet.css" />
+  </head>
+  <body
+    class="text-pharmacy-ink flex justify-center min-h-screen py-0 sm:py-6 selection:bg-sage-200"
+  >
+    <!-- Mobile Viewport Frame (iOS 390px Optimized Container) -->
+    <div
+      class="w-full max-w-[420px] bg-pharmacy-cream min-h-screen sm:min-h-[844px] shadow-2xl sm:rounded-[36px] flex flex-col border-x sm:border border-sage-200/80 overflow-hidden relative"
+    >
+      <!-- BEGIN: Top Navigation Bar -->
+      <nav
+        aria-label="Leaflet header"
+        class="medicine-header border-b border-sage-200/60 bg-white/80 backdrop-blur-md sticky top-0 z-20 shadow-xs"
+      >
+        <div class="medicine-header-start">
+          <a
+            href="Home.html"
+            class="medicine-back"
+            aria-label="Back to leaflet overview"
+          >
+            <svg
+              aria-hidden="true"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M15 19l-7-7 7-7"
+              ></path>
+            </svg>
+          </a>
+          <div class="medicine-header-copy">
+            <h1>e-Leaflet Guide</h1>
+            <p>EU/FDA Digital Pack ID</p>
+          </div>
+        </div>
+        <span class="medicine-auth"
+          ><span aria-hidden="true"></span>Authenticated</span
+        >
+      </nav>
+      <!-- END: Top Navigation Bar -->
+      <!-- Scrollable Main Container -->
+      <main class="flex-1 overflow-y-auto px-4 pt-4 pb-8 space-y-4">
+        <!-- Listen Bar: section position + reads this page aloud -->
+        <div class="flex items-center justify-between gap-3 px-1">
+          <div class="min-w-0 text-sm text-pharmacy-muted">
+            <p>Section 4 of 5</p>
+            <p>
+              <span class="font-semibold text-sage-800">HerbaCalm Forte™</span>
+              · 500 mg
+            </p>
+          </div>
+          <button
+            id="listen-button"
+            type="button"
+            data-speaking="false"
+            class="inline-flex items-center gap-1.5 shrink-0 min-h-[40px] px-3.5 rounded-full border border-sage-300 bg-white text-sm font-semibold text-sage-800 shadow-soft-card transition hover:bg-sage-100 data-[speaking=true]:border-sage-700 data-[speaking=true]:bg-sage-700 data-[speaking=true]:text-white data-[speaking=true]:hover:bg-sage-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sage-400"
+          >
+            <svg
+              data-listen-icon="play"
+              class="w-4 h-4"
+              aria-hidden="true"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"
+              ></path>
+            </svg>
+            <svg
+              data-listen-icon="stop"
+              class="w-4 h-4"
+              aria-hidden="true"
+              hidden
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <rect x="6" y="6" width="12" height="12" rx="2"></rect>
+            </svg>
+            <span data-listen-label>Listen</span>
+          </button>
+        </div>
+
+        <!-- 5. Warnings & Precautions -->
+        <section
+          data-pdf
+          data-speak
+          class="bg-pharmacy-amberSoft rounded-2xl p-4 border border-pharmacy-amberBorder shadow-soft-card"
+        >
+          <div class="flex items-center gap-3 mb-3">
+            <div
+              class="w-8 h-8 rounded-lg bg-amber-100 text-amber-800 flex items-center justify-center shrink-0"
+            >
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                ></path>
+              </svg>
+            </div>
+            <div class="min-w-0">
+              <h2
+                class="text-sm font-bold uppercase tracking-wider text-amber-900"
+              >
+                Warnings &amp; Precautions
+              </h2>
+              <p class="text-sm text-amber-800/80">
+                Critical safety limits &amp; contraindications
+              </p>
+            </div>
+          </div>
+          <ul class="space-y-2 text-sm text-amber-950 font-normal">
+            <li
+              class="flex items-start gap-2.5 bg-white/70 p-3 rounded-xl border border-pharmacy-amberBorder/60"
+            >
+              <div
+                class="w-5 h-5 rounded-full bg-amber-100 text-amber-900 flex items-center justify-center shrink-0"
+              >
+                <svg
+                  class="w-3.5 h-3.5 text-amber-800"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636"
+                  ></path>
+                </svg>
+              </div>
+              <span class="text-sm"
+                ><strong>Contraindication:</strong> Not recommended during
+                pregnancy, lactation, or under 12 years.</span
+              >
+            </li>
+            <li
+              class="flex items-start gap-2.5 bg-white/70 p-3 rounded-xl border border-pharmacy-amberBorder/60"
+            >
+              <div
+                class="w-5 h-5 rounded-full bg-amber-100 text-amber-900 flex items-center justify-center shrink-0"
+              >
+                <svg
+                  class="w-3.5 h-3.5 text-amber-800"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                  ></path>
+                </svg>
+              </div>
+              <span class="text-sm"
+                ><strong>Drowsiness Alert:</strong> May impair alertness;
+                avoid operating heavy machinery or driving.</span
+              >
+            </li>
+            <li
+              class="flex items-start gap-2.5 bg-white/70 p-3 rounded-xl border border-pharmacy-amberBorder/60"
+            >
+              <div
+                class="w-5 h-5 rounded-full bg-amber-100 text-amber-900 flex items-center justify-center shrink-0"
+              >
+                <svg
+                  class="w-3.5 h-3.5 text-amber-800"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"
+                  ></path>
+                </svg>
+              </div>
+              <span class="text-sm"
+                ><strong>Drug Interaction:</strong> Do not combine with
+                central nervous system depressants or alcohol.</span
+              >
+            </li>
+          </ul>
+        </section>
+
+        <!-- Previous / Next: each tap area fills half the row, not just the circle -->
+        <nav aria-label="Leaflet sections" class="leaflet-pager">
+          <a
+            href="Directions.html"
+            class="pager-link"
+            aria-label="Previous: Directions for Use"
+            title="Previous: Directions for Use"
+          >
+            <span class="pager-btn" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M15.75 4.5 8.25 12l7.5 7.5"></path>
+              </svg>
+            </span>
+          </a>
+          <a
+            href="Side%20Effects.html"
+            class="pager-link"
+            aria-label="Next: Possible Side Effects"
+            title="Next: Possible Side Effects"
+          >
+            <span class="pager-btn" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M8.25 4.5 15.75 12l-7.5 7.5"></path>
+              </svg>
+            </span>
+          </a>
+        </nav>
+
+        <!-- Compliance Notice -->
+        <p class="text-sm text-gray-500 leading-relaxed text-center px-2">
+          This digital label reproduces approved packaging text under Regulation
+          (EU) 2017/745 and FDA electronic labeling guidelines. In case of
+          accidental overdose, seek poison center consultation immediately.
+        </p>
+      </main>
+    </div>
+  </body>
+</html>
